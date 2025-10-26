@@ -1,0 +1,61 @@
+/* --- base --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #192444;
+  color: #ffffff;
+}
+.page { min-height: 100vh; }
+
+.card {
+  background-color: #111827;
+  color: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.06);
+  min-width: 320px;
+}
+.card__title { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+
+/* --- GRID: define todas las áreas, incluyendo KPI --- */
+.grid{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;  /* tabla | card | card */
+  grid-template-areas:
+    "table emo  sent"
+    "pie   kpi  umap";   /* <-- KPI va en el centro abajo */
+  gap: 22px;
+  align-items: start;
+  margin-left: 20px;
+}
+
+.card--table { grid-area: table; }
+.card--emo   { grid-area: emo; }
+.card--sent  { grid-area: sent; }
+.card--pie   { grid-area: pie; }
+.card--umap  { grid-area: umap; }
+
+/* IMPORTANTE: el KpiCard debe tener esta clase para ocupar su área */
+.kpi-card    { grid-area: kpi;}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .grid{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "table"
+      "emo"
+      "sent"
+      "pie"
+      "kpi"
+      "umap";
+  }
+}
+
+/* Extras KPI */
+.kpi-card { padding: 16px 18px; border-radius: 14px; box-shadow: 0 4px 18px rgba(0,0,0,.18);
+            border: 1px solid rgba(255,255,255,.06); min-width: 260px; }
+/* .kpi-row { margin: 10px 0 18px; } */
+.kpi-label { font-weight: 700; opacity: .95; }
+.kpi-value { margin-top: 4px; font-weight: 700; font-size: 20px; }

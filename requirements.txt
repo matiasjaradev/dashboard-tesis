@@ -1,0 +1,17 @@
+chardet
+click
+Cython
+dash
+dash-auth
+decorator
+nbformat
+numpy
+pandas
+pandas-datareader
+plotly
+python-dateutil
+pytz
+requests
+urllib3
+Werkzeug
+dash_html_components
